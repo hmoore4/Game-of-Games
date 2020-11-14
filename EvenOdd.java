@@ -34,6 +34,7 @@ public class EvenOdd {
     public static String User1Choice(){
       System.out.print("\t| ");
       user = keyboard.next();
+      System.out.println(" ");
       return user;
     }
 
@@ -44,6 +45,7 @@ public class EvenOdd {
     public static String computerChoice(){
       System.out.print("\t| ");
       computer = keyboard.next();
+      System.out.println(" ");
       return computer;
     }
 
@@ -54,6 +56,7 @@ public class EvenOdd {
     public static int getNumberOfRounds(){
       System.out.print("\t| ");
       NumberOfRounds = keyboard.nextInt();
+      System.out.println(" ");
       return NumberOfRounds;
     }
 
@@ -70,6 +73,7 @@ public class EvenOdd {
         System.out.println("\t|Please throw a number from 1 - 5");
         System.out.print("\t| ");
         throw1 = keyboard.nextInt();
+        System.out.println(" ");
 
       }
       return throw1;
@@ -82,6 +86,7 @@ public class EvenOdd {
     public static int computerThrow(){
       System.out.print("\t| ");
       throw2 = ThreadLocalRandom.current().nextInt(min, max + 1);
+      System.out.println(" ");
       return throw2;
 
 
@@ -119,10 +124,10 @@ public class EvenOdd {
             computerThrow();
 
             if(sumOfThrows() % 2 == 0){
-              System.out.println("\t|Even Wins this round");
+              System.out.println("Even Wins this round");
               totalScoreEven++;
             }else{
-              System.out.println("\t|Odd wins this round");
+              System.out.println("Odd wins this round");
               totalScoreOdd++;
             }
 
@@ -130,21 +135,22 @@ public class EvenOdd {
       System.out.println("\t|"+NumberOfRounds+" Rounds left");
 
       if(NumberOfRounds > 0){
-          System.out.println("\t|Want to continue");
-          System.out.println("\t| ");
-          choice = keyboard.next();
-          if(choice.equals("Y")){
-            continue;
+            System.out.println("\t|Want to continue playing ?\n\t|Enter 'y' to continue 'q' to quit. ");
+            System.out.print("\t| ");
+            System.out.println(" ");
+            choice = keyboard.next();
+            if(choice.equals("Y") || choice.equals("y")){
+              continue;
+            } else if(choice.equals("Q") || choice.equals("q")){
+                System.out.println("\t|Thank you for playing the Game.");
+                break;
           } else{
-          System.out.println("\t|Thank you for playing the Game.");
-          break;
+            System.out.println("\t|Please Enter 'y' to continue 'q' to quit. ");
+          }
         }
-    }
 
 
-
-
-    }
+  }
     while (NumberOfRounds != 0);
     if(totalScoreEven > totalScoreOdd && user.equals("E")){
         System.out.println("\t|Congratulations user1 your choice of Even wins!|");
