@@ -7,12 +7,9 @@ public class FindTheRedThread {
     private static boolean validInput = false;
 
     private static int redThread = 0;
-    private static int threadsPerTurn = 3;
     private static boolean userTurn = true;
     public static boolean hasWinner = false;
-    public FindTheRedThread(){
 
-    }
     public static void setThreadArray(){
         for(int i = 1 ; i < numberOfThreads + 1; i++){
             remainingThreads[i-1] = i;
@@ -26,18 +23,20 @@ public class FindTheRedThread {
 
             }
         }
+        System.out.print("\n");
     }
+
     public static void chooseRedThread(int numberOfThreads){
         Random rand = new Random();
         redThread = rand.nextInt(numberOfThreads) + 1;
         System.out.println("   " + redThread);
     }
-    public static void guessThreads(int threadsPerTurn){
+
+    public static void computerGuessThreads(int threadsPerTurn){
         int counter = threadsPerTurn;
         while(counter != 0){
             Random rand = new Random();
             int guessedThread = rand.nextInt(numberOfThreads) + 1;
-            System.out.println("*"  + guessedThread + "*");
             if(checkGuess(guessedThread)){
                 break;
             }
@@ -50,6 +49,25 @@ public class FindTheRedThread {
             }
         }
         userTurn = !userTurn;
+    }
+
+    public static void userGuessThreads(int threadsPerTurn){
+        int counter = threadsPerTurn;
+       // int guessedThread = GetInput.numericInput();
+
+        while(counter != 0){
+           int guessedThread = GetInput.numericInput();
+            if(checkGuess(guessedThread)){
+                break;
+            }
+            else if(remainingThreads[guessedThread-1] == 0){
+            }
+            else{
+                remainingThreads[guessedThread-1] = 0;
+                counter--;
+            }
+        }
+        
     }
 
     public static boolean checkGuess(int guess){
@@ -106,7 +124,10 @@ public class FindTheRedThread {
         chooseRedThread(20);
         while(hasWinner == false){
             printThreads();
-            guessThreads(userInput);
+            userGuessThreads(userInput);
+            if(!hasWinner){
+                computerGuessThreads(userInput);
+            }
             if(hasWinner)
                 hasWinner = true;
 
