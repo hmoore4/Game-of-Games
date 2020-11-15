@@ -5,8 +5,8 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 public class EvenOdd {
 
-    private static String user;//store the choice of Even or odd for the first user
-    private static String computer;//store the choice of Even or odd for the second user
+    private static int user;//store the choice of Even or odd for the first user
+    private static int computer;//store the choice of Even or odd for the second user
 
     private static int min = 1;//store the choice of Even or odd for the first user
     private static int max = 5;//store the choice of Even or odd for the second user
@@ -32,24 +32,39 @@ public class EvenOdd {
     * Method to get the first user user choice of Even or odd
     * @return user1choice
     */
-    public static String User1Choice(){
-      System.out.print("\t| ");
-      user = keyboard.next();
-      System.out.println(" ");
+    public static int User1Choice(){
+
+
+
+      while(true){
+
+      if(!keyboard.hasNextInt()) {
+         System.out.println("\t| Invalid Input. \n\t| Please Enter 1 for Even or 2 for Odd");
+         System.out.print("\t| ");
+         keyboard.next();
+      } else{
+        user = keyboard.nextInt();
+        System.out.println(" ");
+        break;
+      }
+
+  }
       return user;
-    }
+
+  }
 
     /**
     * Method to get the second user user choice of Even or odd
     * @return user2choice
     */
-    public static String computerChoice(){
+    public static int computerChoice(){
 
-      if(user.equals("E")){
-          computer = "O";
+      if(user == 1){
+          computer = 2;
           System.out.println("\t| You choose Even and Computer choose Odd.");
       }else{
-          computer = "E";
+          computer = 1;
+          user = 2;
           System.out.println("\t| You choose Odd and Computer choose Even.");
       }
       System.out.println(" ");
@@ -63,15 +78,24 @@ public class EvenOdd {
     public static int getNumberOfRounds(){
 
       //NumberOfRounds = keyboard.nextInt();
+      //GetInput.numericInput();
+
       while(true){
         if(NumberOfRounds % 2 != 0){
           break;
 
-        }else{
+      } else if(!keyboard.hasNextInt()) {
+
+         System.out.println("\t|Invalid Input.");
+         Error();
+         System.out.print("\t| ");
+         keyboard.next();
+        } else{
+          //System.out.println("\t|Invalid Input.");
           System.out.print("\t| ");
           NumberOfRounds = keyboard.nextInt();
 
-      }
+        }
       }
       System.out.println(" ");
       return NumberOfRounds;
@@ -134,10 +158,11 @@ public class EvenOdd {
     public static void PlayGame(){
 
       System.out.println("\t| Please Enter a valid number of rounds. Rounds must be an Odd number. e.g(1,3,5...)");
+      System.out.print("\t| ");
       getNumberOfRounds();
 
       //call the user1 function to get the first choice of Even or odd
-      System.out.println("\t|User1 Choose Even or Odd: E or O");
+      System.out.println("\t|User1 Choose Even or Odd: 1 for Even or 2 for Odd");
       User1Choice();
 
       computerChoice();
@@ -179,22 +204,30 @@ public class EvenOdd {
     System.out.println();
     System.out.println();
     System.out.println();
-    if(totalScoreEven > totalScoreOdd && user.equals("E")){
+    if(totalScoreEven > totalScoreOdd && user == 1){
 
-        System.out.println("\t|Congratulations you won! Your choice of Even wins!|");
-        System.out.println("\t|Your total score is: "+totalScoreEven+"Computer total score is "+totalScoreOdd );
+        System.out.println("\t|Congratulations you won! Your choice w Even wins!|");
+        System.out.println("\t|Your total score is: "+totalScoreEven+" Computer total score is "+totalScoreOdd );
+        Scoreboard.userEvenOrOddScore = totalScoreEven;
+        Scoreboard.userTotalScore++;
 
-    } else if(totalScoreEven > totalScoreOdd && computer.equals("E")){
-        System.out.println("\t|Sorry:( Good luck next time. Computer wins this round of Even choice!");
-        System.out.println("\t|Computer total score is: "+totalScoreEven +"User total score is: "+totalScoreOdd);
+    } else if(totalScoreEven > totalScoreOdd && computer == 1){
+        System.out.println("\t|Sorry:( Good luck next time. Computer wins this round with choice of Even!");
+        System.out.println("\t|Computer total score is: "+totalScoreEven +" User total score is: "+totalScoreOdd);
+        Scoreboard.computerEvenOrOddScore = totalScoreEven;
+        Scoreboard.computerTotalScore++;
 
-    } else if(totalScoreEven < totalScoreOdd && user.equals("O")){
+    } else if(totalScoreEven < totalScoreOdd && user == 2){
         System.out.println("\t|Congratulations You won! Your choice of Odd wins!");
-        System.out.println("\t|Your total score is: "+totalScoreOdd+"Computer total score is "+totalScoreEven );
+        System.out.println("\t|Your total score is: "+totalScoreOdd+" Computer total score is "+totalScoreEven );
+        Scoreboard.userEvenOrOddScore = totalScoreOdd;
+        Scoreboard.userTotalScore++;
 
-    } else if(totalScoreEven < totalScoreOdd && computer.equals("O")){
-        System.out.println("\t|Sorry:( Good luck next time. Computer wins this round of Even choice!");
-        System.out.println("\t|Computer total score is: "+totalScoreOdd +"User total score is: "+totalScoreEven);
+    } else if(totalScoreEven < totalScoreOdd && computer == 2){
+        System.out.println("\t|Sorry:( Good luck next time. Computer wins this round with choice of Odd!");
+        System.out.println("\t|Computer total score is: "+totalScoreOdd +" User total score is: "+totalScoreEven);
+        Scoreboard.computerEvenOrOddScore = totalScoreOdd;
+        Scoreboard.computerTotalScore++;
       }
 
   }
@@ -207,9 +240,9 @@ public class EvenOdd {
     System.out.println("\t|           1-Even odd game have to be played between two users (User and computer)         |");
     System.out.println("\t|                                                                                           |");
     System.out.println("\t|         2-You will need to enter the number of rounds to start the game                   |");
-    System.out.println("\t|3- you will be asked to choose either Even or Odd. Please Enter 'E' for even or 'O' for Odd|");
+    System.out.println("\t|3- you will be asked to choose either Even or Odd. Please Enter 1 for Even or 2 for Odd|");
     System.out.println("\t|                                                                                           |");
-    System.out.println("\t|4-         After each round you can quit the game with 'q' or keep going with 'c'          |");
+    System.out.println("\t|4-         After each round you can quit the game with 'q' or keep going with 'y'          |");
     System.out.println("\t|                                                                                           |");
     System.out.println("\t|5-  In the End of the game we will announce the winner by adding both of the throws.       |");
     System.out.println("\t|  if the sum is Even then Even will win. if the sum is odd then Odd will win               |");
