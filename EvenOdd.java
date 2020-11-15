@@ -1,5 +1,6 @@
 /*
 * Even Odd
+* Ziad, Anna, Hunter, Kevin, William
 */
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -43,6 +44,7 @@ public class EvenOdd {
          System.out.print("\t| ");
          keyboard.next();
       } else{
+        System.out.print("\t| ");
         user = keyboard.nextInt();
         System.out.println(" ");
         break;
@@ -264,6 +266,8 @@ public class EvenOdd {
     System.out.println("\t|-------------------------------------------------------------------------------------------|");
   }
 
+    
+    
 /**
 * Start of the main function
 */
