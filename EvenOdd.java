@@ -242,14 +242,14 @@ public class EvenOdd {
     System.out.println("\t|           1-Even odd game have to be played between two users (User and computer)         |");
     System.out.println("\t|                                                                                           |");
     System.out.println("\t|         2-You will need to enter the number of rounds to start the game                   |");
-    System.out.println("\t|3- you will be asked to choose either Even or Odd. Please Enter 1 for Even or 2 for Odd|");
+    System.out.println("\t|3- you will be asked to choose either Even or Odd. Please Enter 1 for Even or 2 for Odd.   |");
     System.out.println("\t|                                                                                           |");
     System.out.println("\t|4-         After each round you can quit the game with 'q' or keep going with 'y'          |");
     System.out.println("\t|                                                                                           |");
     System.out.println("\t|5-  In the End of the game we will announce the winner by adding both of the throws.       |");
     System.out.println("\t|  if the sum is Even then Even will win. if the sum is odd then Odd will win               |");
     System.out.println("\t|6-                After the we announe the winnner and the game ends                       |");
-    System.out.println("\t| You will be asked if you wanna play another round or not.  'Y' to play again 'q to quit'  |");
+    System.out.println("\t| You will be asked if you wanna play again or not. Enter 1 to play again or 2 to quit'     |");
     System.out.println("\t|                                   Enjoy the Game:)                                        |");
     System.out.println("\t|                                                                                           |");
     System.out.println("\t|-------------------------------------------------------------------------------------------|");
