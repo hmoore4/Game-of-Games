@@ -13,14 +13,12 @@ public class FindTheRedThread {
     public static void setThreadArray(){
         for(int i = 1 ; i < numberOfThreads + 1; i++){
             remainingThreads[i-1] = i;
-
         }
     }
     public static void printThreads(){
         for(int i = 1 ; i < numberOfThreads + 1; i++){
             if(remainingThreads[i-1] != 0){
                 System.out.print(i + "   ");
-
             }
         }
         System.out.print("\n");
@@ -57,7 +55,7 @@ public class FindTheRedThread {
     public static void userGuessThreads(int threadsPerTurn){
         userTurn = true;
         int counter = threadsPerTurn;
-        int guessedThread = 0;// = GetInput.numericInput();
+        int guessedThread = 0;
 
         while(counter != 0){
             System.out.println("Please select a thread to choose. You have " +  counter + " guesses left.");
@@ -95,7 +93,6 @@ public class FindTheRedThread {
             return true;
         }
         else{
-            //updateScoreboard();
             return false;
         }
     }
@@ -118,14 +115,15 @@ public class FindTheRedThread {
     }
 
     public static void playGame(){
+        validInput = false;
+        hasWinner = false;
         int userInput = 0;
         printRules();
         System.out.println("Enter a positive number less than or equal to 10 to represent number of threads taken per turn");
 
         while(!validInput){
             try{
-            Scanner scanner = new Scanner(System.in);
-            userInput = scanner.nextInt();//Integer.parseInt(scanner.nextLine());
+            userInput = GetInput.numericInput();
             if(userInput >= 1 && userInput <= 10)
                 validInput = true;
             
