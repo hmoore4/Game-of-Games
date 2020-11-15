@@ -38,12 +38,14 @@ public class FindTheRedThread {
             Random rand = new Random();
             int guessedThread = rand.nextInt(numberOfThreads) + 1;
             if(checkGuess(guessedThread)){
+                System.out.println("The computer guessed thread " + guessedThread + ". That is the red thread!");
                 break;
             }
             else if(remainingThreads[guessedThread-1] == 0){
                 
             }
             else{
+                System.out.println("The computer guessed thread " + guessedThread + ".");
                 remainingThreads[guessedThread-1] = 0;
                 counter--;
             }
@@ -53,20 +55,26 @@ public class FindTheRedThread {
 
     public static void userGuessThreads(int threadsPerTurn){
         int counter = threadsPerTurn;
-       // int guessedThread = GetInput.numericInput();
+        int guessedThread = GetInput.numericInput();
 
         while(counter != 0){
-           int guessedThread = GetInput.numericInput();
-            if(checkGuess(guessedThread)){
-                break;
-            }
-            else if(remainingThreads[guessedThread-1] == 0){
-            }
-            else{
-                remainingThreads[guessedThread-1] = 0;
-                counter--;
-            }
+            System.out.println("Please select a thread to choose. You have " +  counter + " guesses left.");
+
+           guessedThread = GetInput.numericInput();
+           //if(GetInput.isInRange(1, numberOfThreads, guessedThread)){
+                if(checkGuess(guessedThread)){
+                    break;
+                }
+                else if(remainingThreads[guessedThread-1] == 0){
+                    System.out.print("Please choose a thread that hasn't been selected yet.");
+                }
+                else{
+                    remainingThreads[guessedThread-1] = 0;
+                    counter--;
+                }
+           // }
         }
+        System.out.println("Sorry you ran out of guesses! It's the computer's turn now.");
         
     }
 
@@ -97,7 +105,7 @@ public class FindTheRedThread {
     }
 
     public static void printRules(){
-        System.out.println("Place 20 threads in a box, choose a number 1 – 10 inclusive to represent thread pulls per-turn. While alternating turns, select previously declared number of threads to be pulled by using a corresponding number(s) 1-20. Winner is declared once the red thread is found.");
+        System.out.println("Place 20 threads in a box, choose a number 1 - 10 inclusive to represent thread pulls per-turn. While alternating turns, select previously declared number of threads to be pulled by using a corresponding number(s) 1-20. Winner is declared once the red thread is found.");
         System.out.println("");
     }
 

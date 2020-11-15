@@ -8,7 +8,7 @@ public class GuessTheNumber {
     private static int totalGuesses = 0;
 
     public static void printRules(){
-        System.out.println("“Choose two numbers to represent the range of numbers for which you will be guessing in. Next, choose a number to represent the number of guesses you get, this number must be less than half the range. Finally, enter your numeric guesses until either the number is guessed or you run out of guesses.");
+        System.out.println("Choose two numbers to represent the range of numbers for which you will be guessing in. Next, choose a number to represent the number of guesses you get, this number must be less than half the range. Finally, enter your numeric guesses until either the number is guessed or you run out of guesses.");
         System.out.println("");
     }
 
