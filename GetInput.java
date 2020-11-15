@@ -2,11 +2,7 @@ import java.util.Scanner;  // Import the Scanner class
 
 public class GetInput {
     public static int numericInput(){
-        /*boolean validInput = false;
-        int numericInput = 0;
-        Scanner scanner = new Scanner(System.in);  // Create a Scanner object    
-        numericInput = scanner.nextInt(); 
-        return numericInput;   */ 
+
         boolean validInput = false;
         int numericInput = 0;
         while(!validInput){
@@ -23,13 +19,12 @@ public class GetInput {
     }
     
     public static boolean isInRange(int lowBoundary, int highBoundary, int input){
-        System.out.println("TEST");
         if(input >= lowBoundary && input <= highBoundary){
             return true;
         }
         else{
-            System.out.print("Please enter an integer between " + lowBoundary + " and " + highBoundary + ".");
-            numericInput();
+            System.out.println("Please enter an integer between " + lowBoundary + " and " + highBoundary + ".");
+            
             return false;
         }
     } 

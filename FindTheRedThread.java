@@ -33,6 +33,7 @@ public class FindTheRedThread {
     }
 
     public static void computerGuessThreads(int threadsPerTurn){
+        userTurn = false;
         int counter = threadsPerTurn;
         while(counter != 0){
             Random rand = new Random();
@@ -50,18 +51,19 @@ public class FindTheRedThread {
                 counter--;
             }
         }
-        userTurn = !userTurn;
+        System.out.println("The computer didn't uess it! Your turn! Select more threads!");
     }
 
     public static void userGuessThreads(int threadsPerTurn){
+        userTurn = true;
         int counter = threadsPerTurn;
-        int guessedThread = GetInput.numericInput();
+        int guessedThread = 0;// = GetInput.numericInput();
 
         while(counter != 0){
             System.out.println("Please select a thread to choose. You have " +  counter + " guesses left.");
 
            guessedThread = GetInput.numericInput();
-           //if(GetInput.isInRange(1, numberOfThreads, guessedThread)){
+           if(GetInput.isInRange(1, numberOfThreads, guessedThread)){
                 if(checkGuess(guessedThread)){
                     break;
                 }
@@ -72,16 +74,22 @@ public class FindTheRedThread {
                     remainingThreads[guessedThread-1] = 0;
                     counter--;
                 }
-           // }
+            }
+            else{
+                continue;
+            }
         }
-        System.out.println("Sorry you ran out of guesses! It's the computer's turn now.");
+        if(counter == 0 && !checkGuess(guessedThread)){
+            System.out.println("Sorry you ran out of guesses! It's the computer's turn now.");
+        }
+
         
     }
 
     public static boolean checkGuess(int guess){
 
         if(guess == redThread){
-            System.out.print("WINNER");
+            System.out.println("Correct guess! Thread " + redThread + " is the red thread!");
             updateScoreboard();
             hasWinner = true;
             return true;
