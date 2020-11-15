@@ -1,7 +1,6 @@
 /*
 * Even Odd
 * Ziad, Anna, Hunter, Kevin, William
-* Project 340
 */
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -131,6 +130,7 @@ public class EvenOdd {
       System.out.print("\t| ");
       throw2 = ThreadLocalRandom.current().nextInt(min, max + 1);
       System.out.println(" ");
+      //System.out.println("Computer throw: "+throw2);
       return throw2;
 
 
@@ -165,7 +165,8 @@ public class EvenOdd {
       getNumberOfRounds();
 
       //call the user1 function to get the first choice of Even or odd
-      System.out.println("\t|User1 Choose Even or Odd: 1 for Even or 2 for Odd");
+      System.out.println("\t| To start please choose Even or Odd: 1 for Even or 2 for Odd");
+      System.out.print("\t| ");
       User1Choice();
 
       computerChoice();
@@ -173,8 +174,9 @@ public class EvenOdd {
 
 
       do {
-            userThrow();
             computerThrow();
+            userThrow();
+
 
             if(sumOfThrows() % 2 == 0){
               System.out.println("\t| Even Wins this round");
