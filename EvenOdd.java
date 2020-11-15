@@ -1,6 +1,7 @@
 /*
 * Even Odd
 * Ziad, Anna, Hunter, Kevin, William
+* Project 340
 */
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -266,8 +267,8 @@ public class EvenOdd {
     System.out.println("\t|-------------------------------------------------------------------------------------------|");
   }
 
-    
-    
+
+
 /**
 * Start of the main function
 */
