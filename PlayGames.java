@@ -1,22 +1,26 @@
 import java.util.Scanner;  // Import the Scanner class
 
-public class menu {
+public class PlayGames {
     private static boolean isWinnerInCurrentGame = false;
     public static void main(String args[]){
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter username");
+        System.out.println("Enter the game you want to play");
     
-        String userName = myObj.nextLine();  // Read user input
-        if(userName.equals("1")){
-            FindTheRedThread.setThreadArray();
+        String gameChosen = myObj.nextLine();  // Read user input
+        if(gameChosen.equals("1")){
+            FindTheRedThread.playGame();
+            /*FindTheRedThread.setThreadArray();
             FindTheRedThread.chooseRedThread(20);
             while(isWinnerInCurrentGame == false){
                 FindTheRedThread.printThreads();
                 FindTheRedThread.guessThreads(3);
                 if(FindTheRedThread.hasWinner)
-                    isWinnerInCurrentGame = true;
-            }
+                    isWinnerInCurrentGame = true;*/
+            //}
         }
+        //if(gameChosen.equals("2")){
+        //    CoinFlip.playGame();
+        //}
         Scoreboard.printScoreboard();
     }
 }
