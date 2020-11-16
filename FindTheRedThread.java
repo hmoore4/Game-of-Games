@@ -44,7 +44,6 @@ public class FindTheRedThread {
     public static void chooseRedThread(int numberOfThreads){
         Random rand = new Random();
         redThread = rand.nextInt(numberOfThreads) + 1;
-        System.out.println("   " + redThread);
     }
 
     /*
@@ -59,6 +58,7 @@ public class FindTheRedThread {
             int guessedThread = rand.nextInt(numberOfThreads) + 1;          //Generate a random thread to guess
             if(checkGuess(guessedThread)){
                 System.out.println("The computer guessed thread " + guessedThread + ". That is the red thread!");       //Correct guess
+                hasWinner = true;
                 break;
             }
             else if(remainingThreads[guessedThread-1] == 0){        //If it guesses a number that has been chosen, just repeat.
@@ -70,7 +70,8 @@ public class FindTheRedThread {
                 counter--;
             }
         }
-        System.out.println("The computer didn't guess it! Your turn! Select more threads!");
+        if(counter == 0 && !hasWinner)
+            System.out.println("The computer didn't guess it! Your turn! Select more threads!");
     }
 
     /*
