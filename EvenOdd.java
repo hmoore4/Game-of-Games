@@ -33,24 +33,22 @@ public class EvenOdd {
     * Method to get the first user user choice of Even or odd
     * @return user1choice
     */
-    public static int User1Choice(){
-
-
+    public static int user(){
 
       while(true){
+        if(keyboard.hasNextInt()){
+          user = keyboard.nextInt();
+          if(1<=user && user <= 2)
+              break;
+          System.out.println("\t| Invalid Input. \n\t| Please Enter 1 for Even or 2 for Odd");
+          System.out.print("\t| ");
+          } else{
+         //keyboard.next();
+         //user = keyboard.nextInt();
+         continue;
 
-      if(!keyboard.hasNextInt()) {
-         System.out.println("\t| Invalid Input. \n\t| Please Enter 1 for Even or 2 for Odd");
-         System.out.print("\t| ");
-         keyboard.next();
-      } else{
-        System.out.print("\t| ");
-        user = keyboard.nextInt();
-        System.out.println(" ");
-        break;
-      }
-
-  }
+       }
+}
       return user;
 
   }
@@ -167,8 +165,7 @@ public class EvenOdd {
       //call the user1 function to get the first choice of Even or odd
       System.out.println("\t| To start please choose Even or Odd: 1 for Even or 2 for Odd");
       System.out.print("\t| ");
-      User1Choice();
-
+      user();
       computerChoice();
 
 
@@ -198,8 +195,12 @@ public class EvenOdd {
             } else if(choice.equals("Q") || choice.equals("q")){
                 System.out.println("\t|Thank you for playing the Game.");
                 break;
-          } else{
-            System.out.println("\t|Please Enter 'y' to continue 'q' to quit. ");
+          } else if(!choice.equals("Q") || !choice.equals("q") || !choice.equals("Y") || !choice.equals("y")){
+            System.out.println("\t|Please Enter a valid input. Want to continue playing ?\n\t|Enter 'y' to continue 'q' to quit. ");
+            System.out.print("\t| ");
+            choice = keyboard.next();
+          }else{
+            continue;
           }
         }
 
@@ -287,3 +288,4 @@ public class EvenOdd {
 
   }
 }
+
