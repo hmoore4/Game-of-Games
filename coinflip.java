@@ -25,12 +25,15 @@ public class CoinFlip{
 	//Scanner for input 
 	static Scanner input = new Scanner(System.in);
 
+	
 	//establishing the computer's guess
-	if(computerguess == 1){
-		computerchoice = 'heads';
-	}else{
-		computerchoice = 'tails';
-	}
+	public static void compGuess(computerguess){
+   	   if(computerguess == 1){
+      	     computerchoice = "heads";
+           }else{
+            computerchoice = "tails";
+           }
+        }
 
 	/**
 	* method that will display the rules of the game
