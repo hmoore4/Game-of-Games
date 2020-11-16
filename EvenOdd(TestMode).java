@@ -130,7 +130,7 @@ public class EvenOdd {
       System.out.print("\t| ");
       throw2 = ThreadLocalRandom.current().nextInt(min, max + 1);
       System.out.println(" ");
-      //System.out.println("Computer throw: "+throw2);
+      System.out.println("Computer throw: "+throw2);
       return throw2;
 
 
