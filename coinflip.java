@@ -4,6 +4,7 @@
  */
 import java.util.Scanner;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class coinflip{
 
@@ -13,10 +14,12 @@ public class coinflip{
 	private static int programCount; //the amount of wins the computer has
 	private static String computerChoice; //the correct answer of which side the coin lands on
 	private static int numofSides = 1; //used to randomly determine which side the coins lands on
-	private static int computerguess = random.nextInt(numofSides) + 1;;
-
 	//finding the side the coin lands on
 	private static Random random = new Random();
+	private static int computerguess = ThreadLocalRandom.current().nextInt(numofSides) +1;
+	private static boolean isWinner = false;
+
+
 
 
 	//Scanner for input
@@ -58,7 +61,7 @@ public class coinflip{
   * @return void
   */
   public static void userguess(){
-  		System.out.print("Enter your Guess: ");
+  	System.out.print("Enter your Guess: ");
 		userGuess = input.nextLine();
 		System.out.println();
   }
@@ -67,7 +70,7 @@ public class coinflip{
   * Method to ask the user how many rounds they want to play
   * @return void
   */
-  public static void rounds(int rounds){
+  public static void rounds(){
   		System.out.print("Enter the amount of rounds you want to play: ");
   		setRounds = input.nextInt();
   		System.out.println();
@@ -79,17 +82,43 @@ public class coinflip{
   * @return void
   */
   public static void coinFlip(String guess, int rounds){
-  		for(int i= 0; i < Math.ceil(rounds/2); i++)
-  			if(guess == computerChoice){
+		int counter = setRounds;
+		do{
+			userguess();
+			/*
+			//for(int i= 0; i < Math.ceil(rounds/2); i++)
+        if(setRounds % 2 != 0){
+          break;
+          //if the input is not a valid Input such as not integer
+      } if(guess == computerChoice){
   				System.out.println("You won this round!");
   				userCount++;
-
+					continue;
   			}else{
   				System.out.println("You lost this round :(");
   				programCount++;
+					continue;
   			}
-  		scoreboard(userCount, programCount);
-  }
+				*/
+					//if the input is not a valid Input such as not integer
+          //if the input is not a valid Input such as not integer
+			if(userCount == (setRounds+1)/2 || programCount == (setRounds+1)/2)
+						break;
+      if(userGuess == computerChoice){
+  				System.out.println("You won this round!");
+  				userCount++;
+					counter--;
+  			}else{
+  				System.out.println("You lost this round :(");
+  				programCount++;
+					counter--;
+
+				}
+			scoreboard(userCount, programCount);
+			}while(counter != 0);
+
+
+}
   /**
   * Method that prints the score and which player has won the game.
   * @return void
@@ -121,6 +150,7 @@ public class coinflip{
 	public static void playGame(){
 		displayGame();
 		rounds();
+
 		userguess();
 		coinFlip(userGuess,setRounds);
 		scoreboard(userCount, programCount);
@@ -129,5 +159,8 @@ public class coinflip{
    /**
    * Start of the main function
    */
+	 public static void main(String[] args){
+		 playGame();
+	 }
 
 }
