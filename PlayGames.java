@@ -11,14 +11,20 @@ public class PlayGames {
             Scanner scanner = new Scanner(System.in);  // Create a Scanner object
             int gameChosen = scanner.nextInt();  // Read user input
             if(gameChosen == 1){
-                FindTheRedThread.playGame(); 
+                FindTheRedThread.playGame();
             }
             if(gameChosen == 2){
-                GuessTheNumber.playGame(); 
+                GuessTheNumber.playGame();
             }
+            if(gameChosen == 3){
+                Thimble.gameThimble();
+            }
+
             if(gameChosen == 4){
-                EvenOdd.rules();
                 EvenOdd.PlayGame();
+            }
+            if(gameChosen == 5){
+                coinflip.playGame();
             }
 
             Scoreboard.printScoreboard();

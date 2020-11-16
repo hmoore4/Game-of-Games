@@ -11,16 +11,16 @@ public class Thimble
 {
     // instance variables - replace the example below with your own
     Scanner userInput = new Scanner(System.in);
-    private int bestOutNum;
-    private int hiderHand;
-    private int guessHand;
-    private int guesserScore;
-    private int hiderScore; 
-    
+    private static int bestOutNum;
+    private static int hiderHand;
+    private static int guessHand;
+    private static int guesserScore;
+    private static int hiderScore;
+
     /**
      * Constructor for objects of class Thimble
      */
-    public Thimble()
+    public static Thimble()
     {
         // initialise instance variables
         guesserScore = 0;
@@ -32,7 +32,7 @@ public class Thimble
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void rules()
+    public static void rules()
     {
         System.out.println("This game will be played in a 'best out of' fashion.");
         System.out.println("First enter an odd number to represent the maximum number of games to be played.");
@@ -45,7 +45,7 @@ public class Thimble
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void guesserError(){
+    public static void guesserError(){
         System.out.println("Error: Invalid submission. Please reread directions.");
     }
     /**
@@ -54,7 +54,7 @@ public class Thimble
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void setBestOutNum(){
+    public static void setBestOutNum(){
         System.out.println("Enter an odd number that is positive to represent the 'best out of number'.");
         bestOutNum = userInput.nextInt();
         if(bestOutNum % 2 == 0){
@@ -69,7 +69,7 @@ public class Thimble
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void setHiderHand(){
+    public static void setHiderHand(){
         Random rand = new Random();
         //generate random values from 0-1
         hiderHand = rand.nextInt(2);
