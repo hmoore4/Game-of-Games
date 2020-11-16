@@ -115,7 +115,6 @@ public class GuessTheNumber {
         enterRanges();
         enterGuesses();
         generateTarget(rangeHigh, rangeLow);
-        System.out.println("TARGET: " + target);
         guess();
     }
 }
