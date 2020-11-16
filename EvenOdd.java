@@ -19,7 +19,7 @@ public class EvenOdd {
     private static int throw1; //store the first throw
     private static int throw2; //store the second throw
     private static int sumOfThrows; //The sum of throw1+throw2 to determine who win
-    private static String choice = "N"; //choice to contineu the game or break
+    private static int choice; //choice to contineu the game or break
     private static Boolean flag = true; //choice to contineu the game or break
 
 
@@ -185,26 +185,22 @@ public class EvenOdd {
 
       NumberOfRounds--;
       System.out.println("\t|"+NumberOfRounds+" Rounds left");
-
       if(NumberOfRounds > 0){
-            System.out.println("\t|Want to continue playing ?\n\t|Enter 'y' to continue 'q' to quit. ");
+            System.out.println("\t|Want to continue playing ?\n\t|Enter 1 to continue 2 to quit. ");
             System.out.print("\t| ");
-            choice = keyboard.next();
-            if(choice.equals("Y") || choice.equals("y")){
+            choice = keyboard.nextInt();
+            if(choice == 1){
               continue;
-            } else if(choice.equals("Q") || choice.equals("q")){
+            } else if(choice == 2){
                 System.out.println("\t|Thank you for playing the Game.");
                 break;
-          } else if(!choice.equals("Q") || !choice.equals("q") || !choice.equals("Y") || !choice.equals("y")){
-            System.out.println("\t|Please Enter a valid input. Want to continue playing ?\n\t|Enter 'y' to continue 'q' to quit. ");
-            System.out.print("\t| ");
-            choice = keyboard.next();
           }else{
+            System.out.println("\t|Please Enter a valid input. Want to continue playing ?\n\t|Enter 1 to continue 2 to quit. ");
+            System.out.print("\t| ");
+            choice = keyboard.nextInt();
             continue;
           }
         }
-
-
   }
     while (NumberOfRounds != 0);
     System.out.println();
@@ -288,4 +284,3 @@ public class EvenOdd {
 
   }
 }
-
