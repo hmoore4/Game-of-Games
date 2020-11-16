@@ -1,23 +1,39 @@
+/*
+ * This class is responsible for general functions where the user is asked for input
+ * It handles some general error checking cases. But it doesn't check errors that are specific to a certain game.
+ */
+
 import java.util.Scanner;  // Import the Scanner class
 
 public class GetInput {
-    public static int numericInput(){
 
+    /*
+     * This function is used each time a number is asked for
+     *  return: int. Return the integer that is being asked for
+     */
+    public static int numericInput(){
         boolean validInput = false;
         int numericInput = 0;
-        while(!validInput){
+        while(!validInput){     //Will ask for input until a number is given
             try{
-                Scanner scanner = new Scanner(System.in);  // Create a Scanner object    
+                Scanner scanner = new Scanner(System.in);     
                 numericInput = scanner.nextInt(); 
                 validInput = true;
             }
-            catch(Exception inputMismatchException){
+            catch(Exception inputMismatchException){                    //If the value isn't a number, throw error and loop to ask again
                 System.out.println("The input must be an integer!");
             }
         }
         return numericInput;   
     }
     
+    /*
+     * This function checks to see if a number is in a range
+     * param lowBoundary: The lower bound of the range
+     * param highBoundary: The upper bound of the range
+     * param input: the number in question
+     * return boolean true if in range, false otherwise
+     */
     public static boolean isInRange(int lowBoundary, int highBoundary, int input){
         if(input >= lowBoundary && input <= highBoundary){
             return true;
@@ -29,6 +45,10 @@ public class GetInput {
         }
     } 
 
+    /*
+     * This function tells if something is an odd number
+     * return boolean: true if odd, false otherwise
+     */
     public static boolean isOdd(int input){
         if(input % 2 == 0)
             return true;
