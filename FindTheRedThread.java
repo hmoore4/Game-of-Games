@@ -125,6 +125,9 @@ public class FindTheRedThread {
         }
     }
 
+    /*
+     * This method updates score for the game of games scoreboard
+     */ 
     public static void updateScoreboard(){
         if(userTurn){
             Scoreboard.userFindTheRedThreadScore++;
