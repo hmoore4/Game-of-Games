@@ -9,8 +9,6 @@ public class Scoreboard {
         System.out.println("COMPUTER TOTAL SCORE: " + computerTotalScore);
         System.out.println("USER TOTAL SCORE: " + userTotalScore);
 
-        System.out.println("USER FTRT SCORE: " + userFindTheRedThreadScore);
-        System.out.println("COMPUTER FTRT SCORE: " + computerFindTheRedThreadScore);
 
     }
 }
