@@ -12,8 +12,23 @@ public class GuessTheNumber {
      * Print the rules at the start of the game.
      */
     public static void printRules(){
-        System.out.println("Choose two numbers to represent the range of numbers for which you will be guessing in. Next, choose a number to represent the number of guesses you get, this number must be less than half the range. Finally, enter your numeric guesses until either the number is guessed or you run out of guesses.");
-        System.out.println("");
+        System.out.println(" Finally, enter your numeric guesses until either the number is guessed or you run out of guesses.");
+        System.out.println("\t|-------------------------------------------------------------------------------------------|");
+        System.out.println("\t|                    Welcome to Guess The Number                                            |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|           Please read the description of the game here:                                   |");
+        System.out.println("\t|           1-Choose two numbers to represent the range of numbers                          |");
+        System.out.println("\t|            for which you will be guessing in                                              |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|         2-Next, choose a number to represent the number of guesses you get,               |");
+        System.out.println("\t|             this number must be less than half the range.                                 |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|          3- Finally, enter your numeric guesses until either                              |");
+        System.out.println("\t|             the number is guessed or you run out of guesses.                              |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|-------------------------------------------------------------------------------------------|");
+        System.out.println();
+        System.out.println();    
     }
 
     /*
