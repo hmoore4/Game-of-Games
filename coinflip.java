@@ -61,9 +61,20 @@ public class coinflip{
   * @return void
   */
   public static void userguess(){
-  	System.out.print("Enter your Guess: ");
-		userGuess = input.nextLine();
-		System.out.println();
+    do{
+      System.out.println("Remember to type 'heads' for Heads and 'tails' for Tails");
+        try{
+          userGuess = input.nextLine();
+            if(userGuess != "heads" || userGuess != "tails"){
+                throw new InputMismatchException();
+            }
+            System.out.println("Your Guess: " + userGuess);
+            }
+            catch(InputMismatchException e){
+                guesserError();
+                input.next();
+            }
+      } while(userGuess != "heads" || userGuess != "tails");
   }
 
   /**
@@ -71,9 +82,20 @@ public class coinflip{
   * @return void
   */
   public static void rounds(){
-  		System.out.print("Enter the amount of rounds you want to play: ");
-  		setRounds = input.nextInt();
-  		System.out.println();
+    do{
+      System.out.println("Enter an odd number that is positive to represent the best out of number.");
+        try{
+          setRounds = input.nextInt();
+            if(setRounds % 2 == 0){
+                throw new InputMismatchException();
+            }
+            System.out.println("Best out of number: " + setRounds);
+            }
+            catch(InputMismatchException e){
+                guesserError();
+                input.next();
+            }
+        } while(setRounds % 2 != 1);
   }
 
 
