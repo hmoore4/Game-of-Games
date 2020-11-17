@@ -304,7 +304,3 @@ public class EvenOdd {
     PlayGame();
   }
 }
-
-/*
-* END OF THE EVEN ODD PROGRAM
-*/
