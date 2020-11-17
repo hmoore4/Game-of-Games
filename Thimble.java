@@ -37,10 +37,20 @@ public class Thimble
      */
     public static void rules()
     {
-        System.out.println("This game will be played in a 'best out of' fashion.");
-        System.out.println("First enter an odd number to represent the maximum number of games to be played.");
-        System.out.println("To play a single game, guess which hand your opponent is holding the thimble.");
-        System.out.println("If you guess correctly you win the game, if you guess incorrectly you lose.");
+        System.out.println("\t|-------------------------------------------------------------------------------------------|");
+        System.out.println("\t|                    Welcome to Find the Thimble                                            |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|           Please read the description of the game here:                                   |");
+        System.out.println("\t|           1-Even odd game have to be played between two users (User and computer)         |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|         2-This game will be played in a best out of fashion.                              |");
+        System.out.println("\t|3- To play a single game, guess which hand your opponent is holding the thimble.           |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|4-  If you guess correctly you win the game, if you guess incorrectly you lose.            |");
+        System.out.println("\t|-------------------------------------------------------------------------------------------|");
+        System.out.println();
+        System.out.println();
     }
 
     /**
@@ -57,7 +67,7 @@ public class Thimble
      */
     public static void setBestOutNum(){
         do{
-            System.out.println("Enter an odd number that is positive to represent the 'best out of number'.");
+            System.out.println("Enter an odd number that is positive to represent the best out of number.");
             try{
                 bestOutNum = userInput.nextInt();
                 if(bestOutNum % 2 == 0){
@@ -68,7 +78,6 @@ public class Thimble
             catch(InputMismatchException e){
                 guesserError();
                 userInput.next();
-                System.out.println("Best out of number error: " + bestOutNum);
             }
         } while(bestOutNum % 2 != 1);
     }
@@ -82,7 +91,6 @@ public class Thimble
         //generate random values from 0-1
         hiderHand = rand.nextInt(2);
         hiderHand = hiderHand + 1; //updating the value of hiderHand so that it is either 1 or 2
-        System.out.println("cpu hand: " + hiderHand);
     }
 
     /**
@@ -99,6 +107,7 @@ public class Thimble
                     setGuess();
                 }
                 System.out.println("Your guess: " + guessHand);
+                System.out.println("cpu hand: " + hiderHand);
             }
             catch(InputMismatchException e){
                 guesserError();
@@ -117,6 +126,7 @@ public class Thimble
     public static boolean compareHand(int guessHand,int hiderHand){
         if(guessHand == hiderHand){
             return true;
+            
         }
         else{
             return false;
@@ -181,7 +191,10 @@ public class Thimble
             updateScore(compareHand(guessHand, hiderHand));
             winnerGuesser(guesserScore);
             winnerHider(hiderScore);
-            System.out.println("FIND THE THIMBLE: user score: " + guesserScore + "  cpu score: " + hiderScore);
+            System.out.println("\t|-------------------------------------------------------------------------------------------|");
+            System.out.println("\t|           FIND THE THIMBLE: user score: " + guesserScore + "  cpu score: " + hiderScore +"                  |");
+            System.out.println("\t|                                                                                           |");
+            System.out.println("\t|-------------------------------------------------------------------------------------------|");
         }
         if(winnerGuesser(guesserScore) == true){
             System.out.println("You won!");
