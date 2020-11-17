@@ -5,6 +5,7 @@
 import java.util.Scanner;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.InputMismatchException;
 
 public class coinflip{
 
