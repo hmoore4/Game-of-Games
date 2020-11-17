@@ -62,7 +62,7 @@ public class Thimble
     }
 
     /**
-     * Getting the user to input the “best out of number” to know how many rounds the game will go for
+     * Getting the user to input the best out of number to know how many rounds the game will go for
      *
      */
     public static void setBestOutNum(){
